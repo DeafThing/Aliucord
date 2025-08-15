@@ -13,6 +13,7 @@ import com.aliucord.Utils.appContext
 import com.aliucord.coreplugins.*
 import com.aliucord.coreplugins.badges.SupporterBadges
 import com.aliucord.coreplugins.plugindownloader.PluginDownloader
+import com.aliucord.coreplugins.slashcommandsfix.SlashCommandsFix
 import com.aliucord.coreplugins.rn.RNAPI
 import com.aliucord.entities.CorePlugin
 import com.aliucord.entities.Plugin
@@ -270,6 +271,8 @@ object PluginManager {
     @JvmStatic
     fun loadCorePlugins(context: Context) {
         val corePlugins = arrayOf(
+            AlignThreads(),
+            AuthorizedAppsCrashFix(),
             ButtonsAPI(),
             CommandHandler(),
             CoreCommands(),
@@ -287,11 +290,13 @@ object PluginManager {
             RNAPI(),
             Pronouns(),
             ShowReplyMention(),
+            SlashCommandsFix(),
             StickerCrashFix(),
             SupportWarn(),
             SupporterBadges(),
             TokenLogin(),
             UploadSize(),
+            ValidUser(),
         )
 
         corePlugins.forEach { p ->
